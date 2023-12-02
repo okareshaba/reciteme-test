@@ -26,10 +26,12 @@ class LaunchDetailsTemplate extends StatelessWidget {
     return Center(
       child: ListView(
         children: [
-          LaunchDetailsTitle(
-            title: launch.name!,
+          Semantics(
+            label: "Launch Details Title: ",
+            child: LaunchDetailsTitle(
+            title: launch.name,
             subtitle: launch.dateUtc.toString(),
-          ),
+          ),),
           photosList.isNotEmpty
               ? PhotosCarousel(
             links: photosList,

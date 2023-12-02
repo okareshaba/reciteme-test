@@ -20,7 +20,7 @@ class DetailsSection extends StatelessWidget {
         ),
         Text(
           title,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         ...items.map((item) {
           return Column(
@@ -30,7 +30,7 @@ class DetailsSection extends StatelessWidget {
               ),
               Text(
                 item,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           );

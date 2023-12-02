@@ -30,7 +30,6 @@ class PastLaunchesBloc extends HydratedBloc<PastLaunchesEvent, PastLaunchesState
   }
 
   final GetPastLaunches _usecase;
-  // final ILaunchRepository _usecase;
 
   void _handleRefresh(Emitter emit) async {
     if (state is PastLaunchesLoading || state is PastLaunchesRefreshing) {
@@ -45,9 +44,6 @@ class PastLaunchesBloc extends HydratedBloc<PastLaunchesEvent, PastLaunchesState
       ),
     );
 
-    // final result = await _usecase.getPastLaunches( 20,  1,
-    //   state.filter?.orderBy == LaunchFilterOrderBy.flightNumberAsc,
-    // );
     final result = await _usecase(
       Params(limit: 20, page: 1, ascending:
       state.filter?.orderBy == LaunchFilterOrderBy.flightNumberAsc,)
@@ -91,9 +87,6 @@ class PastLaunchesBloc extends HydratedBloc<PastLaunchesEvent, PastLaunchesState
         ),
       );
 
-      // final result = await _usecase.getPastLaunches( 20,  1,
-      //   state.filter?.orderBy == LaunchFilterOrderBy.flightNumberAsc,
-      // );
       final result = await _usecase(Params(limit: 20, page: 1, ascending:
         state.filter?.orderBy == LaunchFilterOrderBy.flightNumberAsc,
       )
