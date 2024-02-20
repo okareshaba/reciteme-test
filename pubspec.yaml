@@ -41,6 +41,15 @@ dev_dependencies:
   injectable_generator:
   flutter_launcher_icons: ^0.13.1
 
+
+flutter_native_splash:
+  image: assets/images/logo.png
+  color: "#1D205D"
+  color_dark: "#1D205D"
+  image_dark: assets/images/logo.png
+  ios: true
+  fullscreen: true
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

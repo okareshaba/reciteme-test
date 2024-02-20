@@ -15,12 +15,10 @@ typedef Future<CompanyInfo> _Company();
 @LazySingleton(as: ICompanyInfoRepository)
 class CompanyInfoRepositoryImpl implements ICompanyInfoRepository {
   const CompanyInfoRepositoryImpl({required this.remoteDataSource,
-    // required this.localDataSource,
     required this.networkInfo});
   final INetworkInfo networkInfo;
 
   final CompanyRemoteDataSource remoteDataSource;
-  // final CompanyLocalDataSource localDataSource;
 
   @override
   Future<Either<Failure, CompanyInfo>> getCompanyInfo() async {
@@ -36,7 +34,6 @@ class CompanyInfoRepositoryImpl implements ICompanyInfoRepository {
     if(await networkInfo.isConnected) {
       try {
         final companyInfo = await info();
-        // localDataSource.cacheCompanyInfo(companyInfo);
         return right(companyInfo);
 
     } on PlatformException catch (ex) {
@@ -50,12 +47,7 @@ class CompanyInfoRepositoryImpl implements ICompanyInfoRepository {
     }
     else {
       return left(const Failure.networkFailure());
-      //   try {
-    //     // final localCompanyInfo = await localDataSource.getLastCompanyInfoData();
-    //     return right(localCompanyInfo);
-    //   } on CacheException {
-    //     return  left(const Failure.cacheFailure());
-    //   }
+
     }
   }
 
